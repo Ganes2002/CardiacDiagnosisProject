@@ -1,0 +1,107 @@
+/* Overall Navbar Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Navbar Background Color */
+.navbar {
+  background: linear-gradient(135deg, #4A90E2 0%, #2C3E50 100%); /* Gradient from Dark Blue to Navy */
+  font-family: 'Poppins', sans-serif; /* Using 'Poppins' font for a more modern feel */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Slight shadow for better elevation */
+  border-radius: 15px; /* Rounded corners for a softer look */
+  padding: 10px 20px; /* Padding for a more spacious feel */
+}
+
+/* Navbar Brand Styling */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #F5F5F5; /* Light color for the brand text */
+  text-transform: uppercase;
+  transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.navbar-brand:hover {
+  color: #e94e77; /* Soft pink hover effect for the brand */
+  transform: scale(1.05); /* Slight zoom effect for the brand */
+}
+
+/* Nav Links Styling */
+.nav-link {
+  color: #F5F5F5; /* Light color for nav links */
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 15px; /* Add some padding for better spacing */
+  border-radius: 20px; /* Rounded links */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.nav-link:hover {
+  color: #66b3ff; /* Light blue on hover for nav links */
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent dark background on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+/* Nav Dropdown Styling */
+.nav-dropdown {
+  color: #F5F5F5; /* Light grey for dropdown text */
+}
+
+.nav-dropdown .dropdown-item {
+  font-size: 1rem;
+  color: #333; /* Default dark color for dropdown items */
+  padding: 10px 15px; /* Padding for better spacing */
+  border-radius: 10px; /* Rounded dropdown items */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.nav-dropdown .dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent dark background on hover */
+  color: white;
+  transform: scale(1.03); /* Slight zoom effect for dropdown items */
+}
+
+/* Profile Dropdown Styling */
+.profile-dropdown {
+  color: #F5F5F5; /* Light grey for profile dropdown items */
+}
+
+.profile-dropdown .dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent dark background on hover */
+  color: white;
+  transform: scale(1.03); /* Slight zoom effect for profile items */
+}
+
+/* Logout Button Styling */
+.logout {
+  color: #ff0000; /* Red for logout text */
+  font-weight: bold;
+  border-radius: 5px; /* Rounded logout button */
+  padding: 8px 12px; /* Padding for better feel */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.logout:hover {
+  color: #e60000; /* Darker red on hover */
+  cursor: pointer;
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Responsive Design: Navbar toggle */
+@media (max-width: 992px) {
+  .navbar-toggler-icon {
+    background-color: #e94e77; /* Soft pink toggle icon */
+  }
+}
+
+/* Optional: Add a cute little animation for nav items */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.nav-link:hover,
+.navbar-brand:hover {
+  animation: bounce 0.5s ease-in-out; /* Bounce effect on hover */
+}

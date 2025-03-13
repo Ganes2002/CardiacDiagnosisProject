@@ -1,0 +1,61 @@
+/* Custom Styles for Login Page */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #f7f7f7; */
+    background-color: #10cedb;
+  }
+  
+  .login-col {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .login-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border-radius: 25px;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    border-radius: 25px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .text-muted {
+    text-decoration: none;
+  }
+  
+  .text-muted:hover {
+    text-decoration: underline;
+  }
+  
+  a.text-primary {
+    text-decoration: none;
+  }
+  
+  a.text-primary:hover {
+    text-decoration: underline;
+  }
+  
+  .alert {
+    margin-bottom: 20px;
+  }
+
+  

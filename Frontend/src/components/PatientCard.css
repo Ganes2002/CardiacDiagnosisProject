@@ -1,0 +1,38 @@
+/* Card title */
+.card-title {
+    font-size: 1.25rem;               /* Slightly larger title font size */
+    font-weight: bold;                /* Bold title for emphasis */
+    color: #333;                      /* Dark color for contrast */
+    margin-bottom: 10px;              /* Space below the title */
+  }
+  
+  /* Card text styling */
+  .card-text {
+    font-size: 1rem;                  /* Comfortable font size for content */
+    color: #555;                      /* Slightly lighter color for text */
+    line-height: 1.6;                 /* Increase line height for better readability */
+  }
+  
+  .card-text strong {
+    color: #333;                      /* Strong labels will have a dark color */
+  }
+  
+  /* Button styling */
+  button.btn {
+    background-color: #ffae00;        /* Blue button background */
+    color: white;                     /* White text for the button */
+    border: none;                     /* Remove default border */
+    border-radius: 25px;              /* Rounded button corners */
+    padding: 10px 20px;               /* Padding for larger click area */
+    transition: background-color 0.3s ease, transform 0.2s ease;  /* Button hover effects */
+    font-size: 1rem;                  /* Button text size */
+  }
+  
+  button.btn:hover {
+    background-color: #0056b3;        /* Darker blue on hover */
+    transform: translateY(-2px);      /* Slightly raise the button on hover */
+  }
+  
+  button.btn:active {
+    transform: translateY(0);         /* Reset on click */
+  }

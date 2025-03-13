@@ -1,0 +1,48 @@
+/* Ensures the container fills the full height of the screen */
+.full-height {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Styling for the form container to center everything */
+  .form-container {
+    max-width: 600px; /* Limits the max width of the form */
+    width: 100%;
+    padding: 30px;
+    /* background-color: #f9f9f9; */
+    background-color: aqua;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Ensures that each form field has consistent spacing */
+  .mb-2 {
+    margin-bottom: 1rem !important; /* Reduced margin to make rows closer */
+  }
+  
+  /* Adjust the width of the submit button to fit the form */
+  .custom-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  /* Error Alert styles */
+  .error-alert {
+    font-size: 0.8rem; /* Smaller font size */
+    color: #e74c3c; /* Red color for error messages */
+    padding: 5px;
+    margin-top: 5px;
+  }
+  
+  /* Error symbol styling */
+  .error-symbol {
+    font-weight: bold;
+    color: #e74c3c; /* Match red color with the alert */
+    margin-right: 5px; /* Space between * and the error message */
+  }

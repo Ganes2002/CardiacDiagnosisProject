@@ -1,0 +1,31 @@
+.app-container {
+  position: relative;
+  z-index: 1; /* Ensure the content is on top of the background */
+  overflow: auto; /* Allow content to scroll over the background */
+  min-height: 100vh; /* Ensure content takes up at least the full height of the viewport */
+}
+
+/* Set the background image on the body */
+body {
+  background-image: url('/home/zadmin/Documents/front-end-heart-sync-main-heart-sync/heart-sync/src/Assests/image.jpg'); /* Replace with your image path */
+  background-size: cover; /* Ensure it covers the entire page */
+  background-position: center center; /* Center the background image */
+  background-attachment: fixed; /* Make the background fixed during scroll */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Optionally, if you want content like text or elements to scroll over */
+.scroll-content {
+  position: relative;
+  z-index: 2; /* Ensure it is on top of the background */
+  padding: 20px; /* Add padding for the content */
+  color: white; /* Choose appropriate color for readability */
+}
+
+/* Ensure the body and html take full height */
+html, body {
+  height: 100%;
+}
