@@ -1,0 +1,125 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Pass@123
+      MYSQL_DATABASE: CardiacDiagnosisDB
+      MYSQL_USER: root
+    ports:
+      - "3307:3306"
+    networks:
+      - microservices-network
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - microservices-network
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "9092:9092"
+    networks:
+      - microservices-network
+
+  eureka-server:
+    image: sganesh1907/serviceregistryimage
+    container_name: eureka-server
+    restart: always
+    ports:
+      - "8761:8761"
+    networks:
+      - microservices-network
+
+  api-gateway:
+    image: sganesh1907/gatewayimage
+    container_name: api-gateway
+    restart: always
+    depends_on:
+      - eureka-server
+    ports:
+      - "8999:8999"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+    networks:
+      - microservices-network
+
+  diagnosis-service:
+    image: sganesh1907/performanceimage
+    container_name: diagnosis-service
+    restart: always
+    depends_on:
+      - eureka-server
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+    networks:
+      - microservices-network
+
+  bookmark-service:
+    image: sganesh1907/bookmarkimage
+    container_name: bookmark-service
+    restart: always
+    depends_on:
+      - eureka-server
+      - mysql
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/CardiacDiagnosisDB
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Pass@123
+    networks:
+      - microservices-network
+
+  authentication-service:
+    image: sganesh1907/authenticationimage
+    container_name: authentication-service
+    restart: always
+    depends_on:
+      - eureka-server
+      - mysql
+      - kafka
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/CardiacDiagnosisDB
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Pass@123
+      KAFKA_BROKER: kafka:9092
+    networks:
+      - microservices-network
+
+  userprofile-service:
+    image: sganesh1907/userprofileimage
+    container_name: userprofile-service
+    restart: always
+    depends_on:
+      - eureka-server
+      - mysql
+      - kafka
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/CardiacDiagnosisDB
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Pass@123
+      KAFKA_BROKER: kafka:9092
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
